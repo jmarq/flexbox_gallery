@@ -36,10 +36,10 @@
     function generate_images(howmany){
       for(var i=0; i<=howmany; i+=1){
         var im = new Image();
-	var w = random_dimension();
-	var h = random_dimension();
-	im.width = w;
-	im.height = h;
+      	var w = random_dimension();
+      	var h = random_dimension();
+      	im.width = w;
+      	im.height = h;
 
         im.src = lorempixel_url();
 	im.classList.add("thumbnail");
