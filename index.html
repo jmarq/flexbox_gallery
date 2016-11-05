@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <title>Imagery</title>
+    <link rel="stylesheet" href="static/css/imagery.css">
+  </head>
+  <body>
+    <header>
+      <h1>Welcome</h1>
+    </header>
+    <section class="image-gallery">
+      <header>
+        Look at These Images
+      </header>
+      <article class="thumbnails">
+        <img class="thumbnail" src="static/images/meadowbrook1.JPG" alt="">
+        <img class="thumbnail" src="static/images/meadowbrook2.JPG" alt="">
+        <img class="thumbnail" src="static/images/meadowbrook3.JPG" alt="">
+        <img class="thumbnail" src="static/images/meadowbrook4.JPG" alt="">
+        <img class="thumbnail" src="static/images/meadowbrook5.JPG" alt="">
+      </article>
+    </section>
+    <section class="modal">
+      <div class="backdrop"></div>
+      <img src="static/images/meadowbrook1.JPG" alt="">
+    </section>
+    <iframe width="100%" height=80 src="https://www.youtube.com/embed/rejA6QRtrAI" frameborder="0" allowfullscreen></iframe>
+  </body>
+  <script>
+    var thumbnails = document.querySelectorAll(".thumbnail");
+    console.log(thumbnails);
+    for( var i=0; i < thumbnails.length; i +=1){ 
+      var thumb = thumbnails[i];
+      console.log(thumb);
+      thumb.addEventListener("click", handleThumbnailClick);
+    }
+    document.querySelector(".modal").addEventListener("click",handleModalClick);
+
+    function handleThumbnailClick(event){
+      console.log("thumbnail clicked");
+      var img_src = this.src;
+      document.querySelector(".modal img").src = img_src;
+      document.querySelector(".modal").classList.remove("hidden");
+    }
+    
+    function handleModalClick(event){
+      this.classList.add("hidden");
+    }
+  </script>
+</html>
