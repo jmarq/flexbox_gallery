@@ -7,26 +7,25 @@
     <link rel="stylesheet" href="static/css/imagery.css">
   </head>
   <body>
-    <header>
-      <h1>Welcome</h1>
-    </header>
     <section class="image-gallery">
-      <header>
-        Look at These Images
-      </header>
       <article class="thumbnails">
-        <img class="thumbnail" src="static/images/meadowbrook1.JPG" alt="">
-        <img class="thumbnail" src="static/images/meadowbrook2.JPG" alt="">
-        <img class="thumbnail" src="static/images/meadowbrook3.JPG" alt="">
-        <img class="thumbnail" src="static/images/meadowbrook4.JPG" alt="">
-        <img class="thumbnail" src="static/images/meadowbrook5.JPG" alt="">
+        <img class="thumbnail" src="static/images/thumbs/meadowbrook1.thumbnail.JPG" alt="">
+        <img class="thumbnail" src="static/images/thumbs/meadowbrook2.thumbnail.JPG" alt="">
+        <img class="thumbnail" src="static/images/thumbs/meadowbrook3.thumbnail.JPG" alt="">
+        <img class="thumbnail" src="static/images/thumbs/meadowbrook4.thumbnail.JPG" alt="">
+        <img class="thumbnail" src="static/images/thumbs/meadowbrook5.thumbnail.JPG" alt="">
+	<img class="thumbnail" src="static/images/thumbs/meadowbrook1.thumbnail.JPG" alt="">
+	<img class="thumbnail" src="static/images/thumbs/meadowbrook2.thumbnail.JPG" alt="">
+	<img class="thumbnail" src="static/images/thumbs/meadowbrook3.thumbnail.JPG" alt="">
+	<img class="thumbnail" src="static/images/thumbs/meadowbrook4.thumbnail.JPG" alt="">
+	<img class="thumbnail" src="static/images/thumbs/meadowbrook5.thumbnail.JPG" alt="">
       </article>
     </section>
     <section class="modal hidden">
       <div class="backdrop"></div>
       <div class="slides">
         <div class="slide1 slide">
-          <img src="static/images/meadowbrook1.JPG" alt="">
+          <img alt="">
         </div>
       </div>
       
@@ -43,9 +42,15 @@
     }
     document.querySelector(".modal").addEventListener("click",handleModalClick);
 
+
+    function thumbnailToSource(thumbnailSource){
+      return thumbnailSource.replace("/thumbs","").replace(".thumbnail","");
+    }
+
     function handleThumbnailClick(event){
       console.log("thumbnail clicked");
       var img_src = this.src;
+      img_src = thumbnailToSource(img_src);
       var modal_img = document.querySelector(".modal img");
       modal_img.src = img_src;
 
@@ -56,9 +61,6 @@
       backdrop.style.height = window.innerHeight+"px";
       modal_img.style.height = window.innerHeight-50+"px";
       thumbnail_section.classList.add("hidden");
-
-
-
     }
     
     function handleModalClick(event){
