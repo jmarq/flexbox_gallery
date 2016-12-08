@@ -33,3 +33,8 @@ lightbox gets dynamically generated. at the beginning (sans images)
   when the thumb is clicked, we show the corresponding slide, and look for an img with the right src.  if not there, we put it there (forcing download).
   hide all other slides.  
 
+how to manage this gallery over time?
+user: me
+workflow: wanna add a photo
+what needs to happen: somehow (web interface? filesystem ops?) "upload" photo, thumbnail generated, thumbnail/slide added to index page
+
