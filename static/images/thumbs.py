@@ -1,15 +1,21 @@
-from os import listdir
+import os
 import Image
 import ImageOps
 
+curdir = os.path.abspath(".")
+index_template_filename = curdir + "/../../index_template.html"
+index_output_filename = curdir + "/../index.html"
+index_template_file = open(index_template_filename,'r')
+index_template_string = index_template_file.read()
+index_template_file.close()
 
 def isJPG(string):
     return string.find(".JPG") != -1 and string.find(".thumbnail") == -1
 
 
-folder_contents = listdir('.')
+folder_contents = os.listdir('.')
 images = filter(lambda(d):isJPG(d),folder_contents)
-img_template = '<img data-slide="%d" class="thumbnail" src="static/images/%s" alt="">\n'
+img_template = '<img data-slide="%d" class="thumbnail" src="images/%s" alt="">\n'
 slide_template = '<div class="slide%d slide"><img alt=""></div>\n'
 imgs_html = ""
 slides_html = ""
@@ -25,5 +31,8 @@ for image in images:
     slides_html += slide_html
     i += 1
 
-print imgs_html
-print slides_html
+compiled_index_template_string = index_template_string % (imgs_html, slides_html)
+index_output_file = open(index_output_filename, 'w')
+index_output_file.write(compiled_index_template_string)
+index_output_file.close()
+print "done"

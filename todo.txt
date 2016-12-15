@@ -1,0 +1,2 @@
+move the scripts to the top level, outside of the static folder ;)
+fix the path references in thumbs.py to reflect the new directory structure
