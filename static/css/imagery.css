@@ -16,6 +16,10 @@ header{
   z-index: 1;
 }
 
+.hidden.thumbnails{
+  display: hidden;
+}
+
 .thumbnail{
   max-width: 200px;
   max-height: 200px;
