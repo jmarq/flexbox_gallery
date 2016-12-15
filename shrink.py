@@ -1,7 +1,7 @@
 from glob import glob
 import Image
 
-images = glob("*.JPG")
+images = glob("static/images/*.JPG")
 SHRINK_FACTOR = 1/2.0
 
 for image in images:
