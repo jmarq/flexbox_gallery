@@ -1,2 +1,4 @@
 hmmm when there are enough photos to create a need for a scrollbar, scroll position is lost when the modal visibility toggles
   -  store scroll position in js variable when clicking a photo, set scrolltop when after hiding modal?
+
+any other css only alternatives?  maybe rethink the modal implementation?
