@@ -2,6 +2,7 @@ import os
 import Image
 import ImageOps
 
+# load the index page template from file
 curdir = os.path.abspath(".")
 index_template_filename = curdir + "/index_template.html"
 index_output_filename = curdir + "/static/index.html"
@@ -20,6 +21,7 @@ slide_template = '<div class="slide%d slide"><img alt=""></div>\n'
 imgs_html = ""
 slides_html = ""
 i = 1
+# create thumbnail img tags and corresponding slides for each image in the images directory
 for image in images:
     im = Image.open("./static/images/"+image)
     thumb = ImageOps.fit(im,(300,300),Image.ANTIALIAS)
@@ -31,6 +33,7 @@ for image in images:
     slides_html += slide_html
     i += 1
 
+# put the new markup into the index page template, write it to file so it can be hosted
 compiled_index_template_string = index_template_string % (imgs_html, slides_html)
 index_output_file = open(index_output_filename, 'w')
 index_output_file.write(compiled_index_template_string)
