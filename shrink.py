@@ -1,3 +1,5 @@
+# this file shrinks the images in the images folder. (to half the original size, by default)
+# this was just a quick n dirty solution to the fact that the images I was working with were larger than I wanted to host
 from glob import glob
 import Image
 
