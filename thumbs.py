@@ -2,6 +2,7 @@ import os
 import Image
 import ImageOps
 
+# load the index page template from file
 curdir = os.path.abspath(".")
 index_template_filename = curdir + "/index_template.html"
 index_output_filename = curdir + "/static/index.html"
@@ -24,6 +25,7 @@ slides_html = ""
 
 # loop through images in folder, create and save thumbnail images, generate markup for thumbnail and lightbox "slide"
 i = 1
+# create thumbnail img tags and corresponding slides for each image in the images directory
 for image in images:
     im = Image.open("./static/images/"+image)
     thumb = ImageOps.fit(im,(300,300),Image.ANTIALIAS)
