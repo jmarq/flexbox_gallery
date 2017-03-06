@@ -25,7 +25,6 @@ slides_html = ""
 
 # loop through images in folder, create and save thumbnail images, generate markup for thumbnail and lightbox "slide"
 i = 1
-# create thumbnail img tags and corresponding slides for each image in the images directory
 for image in images:
     im = Image.open("./static/images/"+image)
     thumb = ImageOps.fit(im,(300,300),Image.ANTIALIAS)
