@@ -1,0 +1,10 @@
+static/images/*.jpg
+static/images/*.JPG
+static/images/thumbs/*
+static/index.html
+index.html
+*.swp
+*/*.swp
+.idea
+
+
