@@ -3,6 +3,8 @@ import Image
 
 images = glob("static/images/*.JPG")
 SHRINK_FACTOR = 1/2.0
+# need to add a way of excluding images that are already acceptable sizes
+# so, need to store dimensions that are deemed acceptable, and add a condition to the loop below
 
 for image in images:
     im = Image.open(image)
