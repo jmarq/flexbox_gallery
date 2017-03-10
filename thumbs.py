@@ -8,15 +8,16 @@ index_template_filename = curdir + "/index_template.html"
 index_output_filename = curdir + "/static/index.html"
 
 # read template for index.html into string
-index_template_file = open(index_template_filename,'r')
+index_template_file = open(index_template_filename, 'r')
 index_template_string = index_template_file.read()
 index_template_file.close()
 
-def isJPG(string):
+
+def is_jpg(string):
     return string.find(".JPG") != -1 and string.find(".thumbnail") == -1
 
 folder_contents = os.listdir('./static/images')
-images = filter(lambda(d):isJPG(d),folder_contents)
+images = filter(lambda(d): is_jpg(d), folder_contents)
 
 img_template = '<img data-slide="%d" class="thumbnail" src="%s" alt="">\n'
 slide_template = '<div class="slide%d slide"><img alt=""></div>\n'
@@ -27,8 +28,8 @@ slides_html = ""
 i = 1
 for image in images:
     im = Image.open("./static/images/"+image)
-    thumb = ImageOps.fit(im,(300,300),Image.ANTIALIAS)
-    thumbnail_filename = "/images/thumbs/"+image.replace(".JPG","")+".thumbnail.JPG"
+    thumb = ImageOps.fit(im, (300, 300), Image.ANTIALIAS)
+    thumbnail_filename = "/images/thumbs/"+image.replace(".JPG", "")+".thumbnail.JPG"
     thumb.save("./static"+thumbnail_filename)
     img_html = img_template % (i, thumbnail_filename)
     slide_html = slide_template % i
