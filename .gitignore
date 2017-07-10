@@ -4,7 +4,6 @@ static/images/thumbs/*
 static/index.html
 static/images
 media
-index.html
 *.swp
 */*.swp
 .idea

@@ -1,0 +1,40 @@
+{% load staticfiles %}
+{% load thumbnail %}
+
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Photo Gallery</title>
+        <link rel="stylesheet" href="{% static 'libs/jsOnlyLightbox/css/lightbox.min.css' %}">
+        <link rel="stylesheet" href="{% static 'css/gallery.css' %}">
+    </head>
+    <body>
+        <h1>Photos</h1>
+        <div class="photo-gallery">
+            {% for photo in photos %}
+                <div class="gallery-item"
+                 data-jslghtbx="{{ photo.image.url }}"
+                 data-jslghtbx-group="mygroup1"
+                 data-jslghtbx-caption="<h1><a style='color:white;' href='{{photo.image.url}}' target='_blank'>{{ photo.title }}</a></h1>">
+                    <h2>{{ photo.title }}</h2>
+                    <p>{{ photo.date }}</p>
+
+                    {% thumbnail photo.image "200x200" crop="center" as im %}
+                        <img src="{{ im.url }}" width="{{ im.width }}" height="{{ im.height }}" alt="">
+                        <!--<a href="{{photo.image.url}}" target="_blank"><img src="{{ im.url }}" width="{{ im.width }}" height="{{ im.height }}"></a> -->
+                    {% endthumbnail %}
+                </div>
+            {% endfor %}
+        </div>
+        <script src="{% static 'libs/jsOnlyLightbox/js/lightbox.min.js' %}"></script>
+        <script>
+            var lightbox = new Lightbox();
+            lightbox.load({
+                maxImgSize: 0.8,
+                prevImg: false,
+                nextImg: false,
+                controls: false,
+            });
+        </script>
+    </body>
+</html>
