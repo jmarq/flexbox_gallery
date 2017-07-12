@@ -9,5 +9,5 @@ media
 .idea
 *.sqlite3
 photo_gallery/local_settings.py
-
+*.pyc
 
